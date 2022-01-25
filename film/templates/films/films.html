@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="table100 ver5 m-b-110">
+    <table data-vertable="ver5">
+        <thead>
+        <tr class="row100 head">
+            <th class="column100 column1" data-column="column1">ID</th>
+            <th class="column100 column2" data-column="column2">Titel</th>
+            <th class="column100 column3" data-column="column3">Toevoeging</th>
+            <th class="column100 column4" data-column="column4">Regisseur</th>
+            <th class="column100 column5" data-column="column5">Regisseur Naam</th>
+            <th class="column100 column6" data-column="column6">Acteur ID</th>
+            <th class="column100 column7" data-column="column7">Acteur Naam</th>
+            <th class="column100 column8" data-column="column8">Gegevens Bekijken</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for film in posts %}
+
+
+            <tr class="row100">
+                <td class="column100 column1" data-column="column1" href="{{ url_for('film', film_id=film.id) }}"> {{ film.id }}</td>
+                <td class="column100 column2" data-column="column2">{{ film.titel }}</td>
+                <td class="column100 column3" data-column="column3">{{ film.toevoegingen }}</td>
+                <td class="column100 column4" data-column="column4">{{ film.regisseur_id }}</td>
+                <td class="column100 column5" data-column="column5">{{ film.regisseur.voornaam }}  {{film.regisseur.achternaam }}</td>
+                <td class="column100 column6" data-column="column6">{{ film.acteur_id }}</td>
+                <td class="column100 column7" data-column="column7">{{ film.acteur.voornaam}}  {{film.acteur.achternaam }}</td>
+                <td class="column100 column8" data-column="column8"><a class="article-title" href="{{ url_for('film', film_id=film.id) }}">View</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock content %}
