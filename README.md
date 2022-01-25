@@ -1,5 +1,6 @@
-# Instructies voor het starten van de webserver
+# Project Webtechnologie, Jaar 1
 
+Start de webserver als volgt:
 
 1#   pip install -r requirements.txt
 
